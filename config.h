@@ -71,8 +71,10 @@ static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *soundupcmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@","+4%", NULL };
 static const char *sounddowncmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@","-4%", NULL };
+static const char *lockterm[] = { "systemctl", "hibernate", NULL};
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_l,      spawn,          {.v = lockterm } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = brupcmd} },
